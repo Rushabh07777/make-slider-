@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .slider-container {
+        position: relative;
+        width: 700px;
+        height: 410px;
+        margin: 0 auto;
+        margin-top: 150px;
+        /*border: 1px solid black;*/
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .slider-main {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    .slider-main::-webkit-scrollbar {
+        display: none;
+    }
+
+    .image {
+        min-width: 700px;
+        height: 100%;
+    }
+
+    img {
+        width: 700px;
+        height: 100%;
+    }
+
+    .btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.39);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 10px;
+        z-index: 1;
+        border-radius: 10px;
+    }
+
+    .btn-left {
+        left: 10px;
+    }
+
+    .btn-right {
+        right: 10px;
+    }
+
+</style>
+
+<body>
+    <div class="slider-container">
+        <button class="btn btn-left" id="prevBtn"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="btn btn-right" id="nextBtn"><i class="fa-solid fa-arrow-right"></i></button>
+
+        <div class="slider-main" id="slider">
+            <div class="image">
+                <img src="https://media.istockphoto.com/id/1399292810/photo/group-of-wildlife-animals-in-the-jungle-together.jpg?s=612x612&w=0&k=20&c=NXVzp7awiZhUf-OjcSmaDTcWz3h_XyGcozlTFD883eg="
+                    alt="Image 1">
+            </div>
+            <div class="image">
+                <img src="https://www.naturesafariindia.com/wp-content/uploads/2021/06/Tiger-Lion-Leopard-Photo-Safari.jpg"
+                    alt="Image 2">
+            </div>
+            <div class="image">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/049/374/296/small_2x/close-up-of-a-wet-monkey-like-creature-with-big-ears-and-sharp-teeth-photo.jpg"
+                    alt="Image 3">
+            </div>
+            <div class="image">
+                <img src="https://static5.depositphotos.com/1015682/397/i/450/depositphotos_3974606-stock-photo-animal-humour.jpg"
+                    alt="Image 4">
+            </div>
+            <div class="image">
+                <img src="https://www.zoonewengland.org/media/466502/jaguar_gallery2.jpg"
+                    alt="Image 5">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let slider = document.getElementById('slider');
+        let nextBtn = document.getElementById('nextBtn');
+        let prevBtn = document.getElementById('prevBtn');
+
+        nextBtn.addEventListener('click', () => {
+            slider.scrollLeft += 700;
+        });
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollLeft -= 700; 
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                slider.scrollLeft += 700; 
+            } else if (event.key === 'ArrowLeft') {
+                slider.scrollLeft -= 700; 
+            } 
+        });
+        
+    </script>
+
+</body>
+
+</html>
